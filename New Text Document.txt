@@ -1,0 +1,231 @@
+1)SUBQUERY-WHERE,CREATE,INSERT,SELECT,UPDATE
+2)TYPE OF JOINS=EQUIJOIN,NATURAL JOIN
+EQULITY OPERATOR MEANS EQUI JOIN
+3)CATRASIAN PRODUCT-SELECT EVRY THING FOR BOTH TABLES
+4)WHAT IS CROSS JOIN?
+5)WHAT IS OUTER JOIN?
+6)WHAT IS NON-EQUI JOIN?
+7)WHAT IS NOTIN?
+SELECT MIN MAX FROM STUDENTS WHERE NOTIN SELECT MIN MARKS FROM STUDENTS
+...IN SUB QUERY NOTIN OTHER THAN MIN MARKS
+8)WHAT IS ALL OPERATOR?
+SELECT ENAME FROM EMP WHERE DEPT=ALL(10,20,30);
+9)ANY
+10)WHAT IS SELF JOIN & EQUIJOIN?
+IT WILL BE SELF JOIN
+11)THERE IS A DEFAULT VALE IN D TABLE .WHAT IS THE SYNTAX?
+A)INSERTE INTO TABLE VALUES(NAME ,DEFAULT)
+NULL IS INSERTED IN DEFAULT COLUMN
+12)create table student (studentcode is number its a pk,studentname varchar2,
+studentloca varchar2 default value is jaipur) which student invalid
+--insert into stu values (10,rohini)--invalid
+==insert into stucode values(30)--valid
+--insert into stud vales(40 ,raju)
+--insert into stud value(studetname,locat)(sang,pune)--invalid (pk is must)
+13)salary ques
+14)set update alin salary 75%
+15)select deptno,sumsal frome emp groupby deptno having sumsal lessthan 20k
+16)select min(sum(sal)) from emp group by deptno;===aggreagrate func
+select ename,dname from empe dept d  whre e.deptno=d.deptno +
+17)create table emp1 as select * from emp where 1=2:
+18)update emp sal=sal+20 where deoptno=10;notcorrect
+update emp set sal=sal+20 wheere deptno=select deptno from dept where dname=id;correct
+updateemp set sal=sal,sal*10 where deptno =30incorrect
+19)insert into emp1 slect * from emp--correcrt
+20)delete from emp where job=analayyst and 1>2---no rowselected
+21)write a query for emp table to get the sum of salary and no of employees in each depatment 
+except the dept contaikning the alpha bet l in it
+%l%
+22)select deptno from emp groupby deptno having sumsal=select max(sum(sal))
+ from emp group by deptno
+o/p:its return the max sal in deptno 
+22)what is diff betwwen distnt,count*,
+23)select empid,count*from emp where job like'a%' group by deptno having count* >3
+sequence of execution function
+a)where count group by having answer:where groupby count having
+24)MIN MAX ALLOWED IN date type ---- min 1983 max 2017
+25)how to find out count of an each employe ----coun group by deptno
+26)assume of emp1 table is empty...
+27)in which emp table in emp table emp ... dept laso have...
+that column is foreign key ...
+28)how do u assign a null value to 
+update column value is null(where) in insert we use(=)
+29)display the student name and max marks of student in those depts where avg score is >50;
+a)select student name,marka from student groupby dept having avg marks
+30)select the deptid,no ---count*>20
+31)find the students whose score morethan evrey body in it depatment ..
+select  max marks from student where dept=id  
+32)select * from emp where hiredate is >selct hiredate from emp where ename like alian
+a)all d the emp details who have joined after alin
+33)when inserting values can be data from keyboard----&(by using) while runtime
+34)can we update mulitiple columns--
+syntax update table set colukn value column2 value
+35)can we use an insted of ,
+36)can we have 2 set in acolumn
+37)can i update all statemnts in one tym
+update tabkle set 
+38)delte
+39)rollback is performed in delte but not in drop(drop is autocoomit)(ddl is autocommit)
+dml is not auto coomit)
+40)rollback & savepoint
+41)sequence ..start with 1...
+42)how do we insert a primary in sequence.... sequence name.nextval
+cursors
+====
+1)explict cursor
+what is the steps invoule init .....its user defind implict is sql
+declare ,open fetech,close
+2)fetch dealloct declare close process open
+declare-open-fetch-process-closse-deallocte
+3)implict cursor implement by datbase developer ---false
+4)can be handled 
+5)imp doesnt maintain meamory---false
+6)% rowcount-----by default is 0(%count)
+7)%found -----no data,%notfounf
+8)%count
+9)%isopen---it return true if cursor is open
+10)create procede
+proc1
+(name varchar2) as
+begin name=substr(name,2,4)
+dbms output(name)
+end;a)not given names
+what is the name is out type variable (we cant assign the value)
+11)emp tsble
+executing the proc
+create replac proce
+as sal
+sal1 as init
+begin
+select sal1 as sal
+dbms sal is asl1
+end;=---sucessful
+12)create opr proce 1
+pdno number) as
+v_count(2);no_data exxception
+begin select count * int0 v_count from emp
+where deptno=pdno;
+if v_count=0
+then raise nodata 
+endif
+dbms(there are||  v_count || records);
+
+exception
+	when no data found then
+		------
+	when no_data then
+		-------
+end;
+13)smith performed update operatinon
+inside in plsql 1 row updaetd
+now we cursor attribue (%row count)
+% rowcount in select
+14)is there exit condition it will go to fetch
+15)which is of the following done vursor
+decalre open fetch specified cursor====>declare
+16)main & sub query ----true
+must get--false
+cant contain group by---false
+procedure may be 0 or mare parameters---true
+morethan one o/p aprameter---false
+procedure compileted at the of creation--->true
+proced can be executed by other user approatie rights---true
+formal parameters must be assigned value ---tr
+actual parametermust be variable---->true
+formal paramerts act as constant--f
+inout variable returnupdated values---t
+17)how to call a procedure proc1
+abc are number
+ab in
+cis out type variable
+a)execute proc1(2,4)x
+18)how to call a function
+a)eecute :=func
+unconstraint type name such number or varchar2=---t
+tha datetype formal parmater type %persontypr/rowtype---t
+numercal constraint types such as number(2)var(20) are allowed to formal list----f
+multiple rows each rows individually--->
+implicat cursor are not open by program--->t
+implict no longer feature in oracle-->f
+implict cursor are used in cursor for loop to handle-----f
+can we have return type in procedure-->no
+we have a return in function-->yes
+can we parametrized or constrint ---->no
+stored procedure use declare in keyword deaclare parameter---->true
+can we use declare a function or function--->
+stored procedure declare formal --->f
+stored procedure is named plsql block with atleast paaremeter---->f
+stored proecedure must atleast one exectuble statement--->t
+what is d defination stored procedure in java syntax--->f
+stred is named pl sql block that can accept parameters--t-
+a stored that subprogram perfom---t
+mmandatory a apecfication exeception handler is not neceessary-->f
+19)what is position mixed paramerter named notations?
+
+se
+======
+1)what is system testing?function& performance
+2)alpha testing---->developer bete-->user
+developer has develop only to accept number now tester--->functionla
+acceptance testing--->beta alpha
+what is d diff btwennfn & non-fn?securtity non fun
+reponce tym---non fun business-fun usability---nonfun
+what is a review?and who can perform review?
+tester user developer quality assurance they do it
+review should be done of every phase of sdlc
+both can selfreview peer review
+code can be tested no review---f
+load testing is not system testing---t
+testing is done from user --->f
+'''developement--->f
+'''intergrated --->t
+system can be check functionality after modulity--->f
+unit testing ---->t
+____ module needs very high relible ?a)v_module
+as a aprt po sdlc pseduocoe should be created------>design
+requiremnt document of sdlc---- srs(a)---project pln architec
+which type accoding to v_module----->unit system integraton 
+phase of system---accept
+system requiremnt process --->
+what is construction phase?bulidin agrement
+sdlc model---- prototype module is used code or not--yes
+can we build in prototype--y
+code reuse-->f
+ittrate is a type sdlc-t
+waterfall-t
+typeof sdlc--->agile ......
+what is an incremetal module----f
+iterative it is flexible to change---t
+builds on previous---t
+which of folloeing ---sw hw audit ----ans is all of the above
+all the project cahnge mangement become --->wrong version & redutant file is also created
+_______configural item based for  furuther developmenta)base line
+match the folloeing
+====
+set a
+confi manger
+non
+confi item
+non confi mager
+setb 
+configution details of project
+adbc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
